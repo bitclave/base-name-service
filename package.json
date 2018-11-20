@@ -1,0 +1,46 @@
+{
+  "name": "crypto-wealth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/app.js",
+  "scripts": {
+    "postinstall": "./fix_bn_js_types.sh && node ./utils/remove-bitcore-lib-dep.js && node utils/del.js TEMP-base-client-js node_modules/bitclave-base node_modules/@types/bitclave-base && git clone --branch develop --depth 1 https://github.com/Winger1994/base-client-js TEMP-base-client-js && node utils/copy.js TEMP-base-client-js/example/public/base-lib/bitclave-base node_modules/bitclave-base/ && node utils/copy.js TEMP-base-client-js/example/public/base-lib/@types/bitclave-base node_modules/@types/bitclave-base/ && node utils/del.js TEMP-base-client-js && tsc",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.4",
+    "@types/node": "^10.5.1",
+    "@types/underscore": "^1.8.9",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "ts-mockito": "^2.3.0",
+    "ts-node": "^7.0.0"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.1.1",
+    "ajv": "^6.3.0",
+    "bignumber.js": "^7.2.1",
+    "bitcore-ecies": "^1.0.3",
+    "bitcore-lib": "^0.15.0",
+    "bitcore-message": "^1.0.4",
+    "bitcore-mnemonic": "^1.5.0",
+    "config": "^1.30.0",
+    "crypto-js": "^3.1.9-1",
+    "eth-sig-util": "^1.4.2",
+    "express": "^4.16.3",
+    "node-fetch": "^2.1.2",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5",
+    "rxjs": "^5.5.10",
+    "typedarray-to-buffer": "^3.1.5",
+    "typescript": "^2.9.2",
+    "web3": "^1.0.0-beta.34",
+    "xmlhttprequest": "^1.8.0",
+    "yaeti": "^1.0.2"
+  }
+}
