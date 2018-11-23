@@ -5,7 +5,7 @@
  * The service type is fixed and unique universally at this moment.
  */
 
-import Base, { AccessRight, SubscriptionManagerImpl, ServiceType, ServiceInfo, ServiceImpl } from 'bitclave-base/';
+import Base, { AccessRight, SubscriptionManagerImpl, ServiceType, ServiceInfo, GeneralService } from 'bitclave-base/';
 
 const config = require('config');
 const serviceTypes: Set<string> = new Set();
@@ -34,7 +34,7 @@ export class NameService {
             this.accNameService.publicKey,
             nameServiceDescription,
             [SubscriptionManagerImpl.KEY_SERVICE_INFO]);
-        this.service = new ServiceImpl(
+        this.service = new GeneralService(
             this.serviceInfo,
             this.base.profileManager,
             this.base.dataRequestManager);
